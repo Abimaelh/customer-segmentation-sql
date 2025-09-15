@@ -2,7 +2,6 @@
 Thumbs.db
 .vscode/
 *.code-workspace
-*.sql
 *.dump
 *.bak
 *.log
