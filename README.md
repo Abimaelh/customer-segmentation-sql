@@ -1,1 +1,1 @@
-# customer-segmentation-sql
+# Customer Segmentation with SQL
