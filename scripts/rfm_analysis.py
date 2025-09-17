@@ -25,6 +25,7 @@ conn.close()
 
 #print(df.head())
 #print(df.info())
+#print(df.columns)
 
 plt.figure(figsize=(10,6))
 sns.barplot(data=df, x = "customerid", y = "monetary")
