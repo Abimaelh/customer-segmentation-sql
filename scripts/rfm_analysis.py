@@ -22,3 +22,13 @@ LIMIT 10;
 
 df = pd.read_sql(query, conn)
 conn.close()
+
+#print(df.head())
+#print(df.info())
+
+plt.figure(figsize=(10,6))
+sns.barplot(data=df, x = "customerid", y = "monetary")
+plt.xticks(rotation = 45)
+plt.title("Top 10 Customers by Total Spend")
+plt.tight_layout()
+plt.show()
