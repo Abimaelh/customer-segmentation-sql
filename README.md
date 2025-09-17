@@ -49,9 +49,17 @@ psql -d ecommerce -c "\copy sales FROM '~/datasets/ecommerce/data.csv' CSV HEADE
 ```
 ## Example SQL Queries
 ```sql
--- Total Customers
-SELECT COUNT(DISTINCT CustomerID) FROM sales;
+-- Top 10 spenders
+SELECT 
+    CustomerID,
+    SUM(Quantity * UnitPrice) AS total_spend
+FROM sales_clean
+GROUP BY CustomerID
+ORDER BY total_spend DESC
+LIMIT 10;
 ```
+![Top 10 Customers by Spend](reports/Top-10.png)
+
 ```sql
 -- RFM Segmentation
 SELECT
