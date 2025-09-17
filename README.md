@@ -72,7 +72,7 @@ GROUP BY CustomerID;
 ```
 ---
 ### Next Steps
-* 🚧 Build Tableau or Python visualizations of the segments *(in-progress)*
+* 🚧 Python visualizations of the segments *(in-progress)*
 * Explore advanced clustering (K-Means, Hierarchical)
 * Automate refresh pipelines
 ---
