@@ -64,10 +64,10 @@ LIMIT 10;
 -- RFM Segmentation
 SELECT
     CustomerID,
-    MAX(InvoiceDate) AS last_purchase,
+    DATE_PART('day', CURRENT_DATE - MAX(InvoiceDate)) AS recency,
     COUNT(*) AS frequency,
-    SUM(UnitPrice * Quantity) AS monetary
-FROM sales
+    SUM(UnitPrice * Quantity) AS total_spend
+FROM sales_clean
 GROUP BY CustomerID;
 ```
 ---
