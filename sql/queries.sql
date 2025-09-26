@@ -16,7 +16,7 @@ SELECT
     CustomerID,
     MAX(InvoiceDate) AS last_purchase,
     COUNT(*) AS frequency,
-    SUM(UnitPrice * Quantity) AS monetary
+    SUM(UnitPrice * Quantity) AS total_spend
 FROM sales_clean
 GROUP BY CustomerID;
 
@@ -24,7 +24,7 @@ GROUP BY CustomerID;
 SELECT
     CustomerID,
     COUNT(*) AS frequency,
-    SUM(UnitPrice * Quantity) AS monetary,
+    SUM(UnitPrice * Quantity) AS total_spend,
     SUM(UnitPrice * Quantity)/COUNT(*) AS avg_order_value
 FROM sales_clean
 GROUP BY CustomerID
