@@ -27,9 +27,11 @@ conn.close()
 #print(df.info())
 #print(df.columns)
 
-plt.figure(figsize=(10,6))
-sns.barplot(data=df, x = "customerid", y = "total_spend")
-plt.xticks(rotation = 45)
-plt.title("RFM Segmentation")
-plt.tight_layout()
-plt.show()
+# Remove null values
+df = df[df['total_spend'] > 0]
+
+df['R_quartile'] = pd.qcut(df['recency'], 5, labels=[5,4,3,2,1])
+df['F_quartile'] = pd.qcut(df['frequency'].rank(method='first'), 5, labels=[1,2,3,4,5])
+df['M_quartile'] = pd.qcut(df['total_spend'], 5, labels=[1,2,3,4,5])
+
+df['RFM_Score'] = df['R_quartile'].astype(str) + df['F_quartile'].astype(str) + df['M_quartile'].astype(str)
