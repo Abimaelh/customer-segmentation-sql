@@ -13,11 +13,11 @@ conn = psycopg2.connect(
 query = """
 SELECT
     CustomerID,
+    MAX(InvoiceDate) AS last_purchase,
+    COUNT(*) AS frequency,
     SUM(UnitPrice * Quantity) AS total_spend
 FROM sales_clean
-GROUP BY CustomerID
-ORDER BY total_spend DESC
-LIMIT 10;
+GROUP BY CustomerID;
 """
 
 df = pd.read_sql(query, conn)
@@ -30,8 +30,6 @@ conn.close()
 plt.figure(figsize=(10,6))
 sns.barplot(data=df, x = "customerid", y = "total_spend")
 plt.xticks(rotation = 45)
-plt.title("Top 10 Customers by Total Spend")
+plt.title("RFM Segmentation")
 plt.tight_layout()
 plt.show()
-
-# rfm analysis next
