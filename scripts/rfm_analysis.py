@@ -30,8 +30,10 @@ conn.close()
 # Remove null values
 df = df[df['total_spend'] > 0]
 
+# break into quintiles
 df['R_quartile'] = pd.qcut(df['recency'], 5, labels=[5,4,3,2,1])
 df['F_quartile'] = pd.qcut(df['frequency'].rank(method='first'), 5, labels=[1,2,3,4,5])
-df['M_quartile'] = pd.qcut(df['total_spend'], 5, labels=[1,2,3,4,5])
+df['M_quartile'] = pd.qcut(df['total_spend'], 5, labels=[1,2,3,4,5]) #monetary
 
+# compute RFM score
 df['RFM_Score'] = df['R_quartile'].astype(str) + df['F_quartile'].astype(str) + df['M_quartile'].astype(str)
