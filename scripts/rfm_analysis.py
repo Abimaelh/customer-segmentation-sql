@@ -37,3 +37,6 @@ df['M_quartile'] = pd.qcut(df['total_spend'], 5, labels=[1,2,3,4,5]) #monetary
 
 # compute RFM score
 df['RFM_Score'] = df['R_quartile'].astype(str) + df['F_quartile'].astype(str) + df['M_quartile'].astype(str)
+
+# computer RFM score
+df['RFM_Sum'] = df['R_quartile'].astype(int) + df['F_quartile'].astype(int) + df['M_quartile'].astype(int)
