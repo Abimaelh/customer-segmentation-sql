@@ -40,3 +40,11 @@ df['RFM_Score'] = df['R_quartile'].astype(str) + df['F_quartile'].astype(str) + 
 
 # computer RFM score
 df['RFM_Sum'] = df['R_quartile'].astype(int) + df['F_quartile'].astype(int) + df['M_quartile'].astype(int)
+
+# plot RFM score
+plt.figure(figsize=(8,6))
+sns.histplot(df['RFM_Sum'], bins = 15, kde = True)
+plt.title("Distribution of RFM Scores")
+plt.xlabel("RFM Sum")
+plt.ylabel("Number of Customers")
+plt.show
