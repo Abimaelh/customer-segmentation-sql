@@ -47,4 +47,4 @@ sns.histplot(df['RFM_Sum'], bins = 15, kde = True)
 plt.title("Distribution of RFM Scores")
 plt.xlabel("RFM Sum")
 plt.ylabel("Number of Customers")
-plt.show
+plt.show()
