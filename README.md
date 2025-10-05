@@ -70,6 +70,7 @@ SELECT
 FROM sales_clean
 GROUP BY CustomerID;
 ```
+![RFM Segmentation](reports/rfm-scores.png)
 ---
 ### Next Steps
 * 🚧 Python visualizations of the segments *(in-progress)*
